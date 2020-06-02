@@ -25,4 +25,8 @@ Note: Azure IoT edge runtime creates new network called "*azure-iot-edge*" when 
 
 	`/mqtt/mqtt-listen.py or /mqtt/mqtt-test.py`
 
-9. Finally, clone this Git repository and follow the [Microsoft Tutorial: Develop and deploy a Python IoT Edge module for Linux devices](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-python-module)
+![MQTT Explorer](https://github.com/virshah24/azfn-edgemodule-mqtt-py/blob/master/media/azfunc-mqtt-explorer.PNG)
+
+8. Finally, clone this Git repository and follow the [Microsoft Tutorial: Develop and deploy a Python IoT Edge module for Linux devices](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-python-module) to deploy the Azure Function module on the edge. 
+
+![VS Code - Python Azure Function](https://github.com/virshah24/azfn-edgemodule-mqtt-py/blob/master/media/azfunc-mqtt-vscode.png)
