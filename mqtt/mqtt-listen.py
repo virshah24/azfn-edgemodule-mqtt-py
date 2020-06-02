@@ -10,7 +10,7 @@ def on_message(client, userdata, message):
 
 broker_address="broker.mqttdashboard.com" 
 #broker_address="iot.eclipse.org" #use external broker
-client = mqtt.Client("mskoch-mqtt-test") #create new instance
+client = mqtt.Client("local-mqtt-test") #create new instance
 client.on_message=on_message #attach function to callback
 print("connecting to broker")
 

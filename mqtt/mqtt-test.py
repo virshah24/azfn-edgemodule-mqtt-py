@@ -17,9 +17,9 @@ print("connecting to broker")
 client.connect(broker_address) #connect to broker
 client.loop_start() #start the loop
 
-print("Subscribing to topic","kochedge/local-py")
-client.subscribe("kochedge/local-py", qos=0)
-print("Publishing message to topic","kochedge/local-py")
-client.publish("kochedge/local-py","alert")#publish
+print("Subscribing to topic","localedge/local-py")
+client.subscribe("localedge/local-py", qos=0)
+print("Publishing message to topic","localedge/local-py")
+client.publish("localedge/local-py","alert")#publish
 time.sleep(4) # wait
 client.loop_stop() #stop the loop
