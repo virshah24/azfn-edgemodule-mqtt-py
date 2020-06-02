@@ -1,0 +1,1 @@
+Azure Function module that forks data from Azure IoT Hub on the edge to on-prem MQTT broker
