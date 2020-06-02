@@ -30,17 +30,7 @@ async def main():
         # connect the client.
         await module_client.connect()
 
-        # # define behavior for receiving an input message on input1
-        # async def input1_listener(module_client):
-        #     while True:
-        #         input_message = await module_client.receive_message_on_input("input1")  # blocking call
-        #         print("the data in the message received on input1 was ")
-        #         print(input_message.data)
-        #         print("custom properties are")
-        #         print(input_message.custom_properties)
-        #         print("forwarding mesage to output1")
-        #         await module_client.send_message_to_output(input_message, "output1")
-
+        
         #Define behavior for receiving an input message on input1
         #Because this is a filter module, we forward this message to the "output1" queue.
         async def input1_listener(module_client):
@@ -65,12 +55,12 @@ async def main():
                         
                         #Fanout to Mqtt broker as well...
                         broker_address="172.18.0.5"                         
-                        client = mqtt.Client("mskoch-mqtt-azfunc") #create new instance
+                        client = mqtt.Client("localedge-mqtt-azfunc") #create new instance
                         print("connecting to Mqtt broker")
                         client.connect(broker_address) #connect to broker
                        
-                        print("Publishing message to topic ","kochedge/azfuncpy")
-                        client.publish("kochedge/azfuncpy", "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))#publish
+                        print("Publishing message to topic ","localedge/azfuncpy")
+                        client.publish("localedge/azfuncpy", "Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))#publish
                 except Exception as ex:
                     print ( "Unexpected error in input1_listener: %s" % ex )
 
@@ -100,10 +90,7 @@ async def main():
                 except:
                     time.sleep(10)
 
-        # # Schedule task for C2D Listener
-        # listeners = asyncio.gather(input1_listener(module_client))
-
-        # print ( "The sample is now waiting for messages. ")
+        print ( "The sample is now waiting for messages. ")
         # Schedule task for C2D Listener
         listeners = asyncio.gather(input1_listener(module_client), twin_patch_listener(module_client))
 
